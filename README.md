@@ -36,7 +36,7 @@ Real-time, physically accurate 2D rendering of the sky from location and weather
   I initially thought this would be a 2-hour project, but there was a reason why there's crazy papers and not many examples of this...
 1. **Struggling with Sunrise and Sunset Colors**:
   - At first, my sunsets were blue despite having implemented the exact scattering algorithms. I had to review all of my measurement units and constants to ensure they were physically correct (especially the path length, since a long path length scatters the blue and makes way for red) 
-   - However, after I was able to degrade the blue enough to get a red sunset, the sky turned green at a solar angle of 15 degrees because I was normalizing color vectors by the largest value and green became dominant at the point where red and blue balanced out. To fix this, I attenuated the green intensity, but this slightly disrupted the overall color balance and resulted in a less accurate implementation. In the future, I plan to 
+   - However, after I was able to degrade the blue enough to get a red sunset, the sky turned green at a solar angle of 15 degrees because I was normalizing color vectors by the largest value and green became dominant at the point where red and blue balanced out. To fix this, I attenuated the green intensity, but this slightly disrupted the overall color balance and resulted in a less accurate implementation. In the future, I plan to revise my normalization method and accurately adjust the blues and reds to what enters the human eye to organically remove this phenomenon.
 
 2. **Cloud Generation Limitations**:
    - Using a Threejs shader to layer simplified noise was one of my only options to produce a product that was computationally inexpensive enough, but I ended up with clouds that looked more like fog than fluff. I plan to experiment with the noise and possibly find ways to combine other forms of noise such as Worley noise to create more texture.
@@ -54,9 +54,9 @@ Real-time, physically accurate 2D rendering of the sky from location and weather
   - 3D globe navigator for users to select any point on Earth.
   - More complex color gradients using other phenomena
   - Render weather effects (e.g., rain, fog) using custom shaders.
-  - Display regional skylines (e.g., urban, mountainous) by pulling map data and categories via a map API.
-  - Simulate Martian skies with reddish daytime tones and blue sunsets.
-  - Add nighttime rendering, incorporating different scattering and light reflection physics.
+  - Display regional skylines (e.g., urban, mountainous) by pulling map data and categories via a map API
+  - Simulate Martian skies and other custom planets (Mars has reddish daytime tones and blue sunsets :O )
+  - Add nighttime rendering, incorporating different scattering and light reflection physics
 
 ## **References and Resources**
   - [Dynamic Atmospheric Scattering] https://inria.hal.science/inria-00288758
